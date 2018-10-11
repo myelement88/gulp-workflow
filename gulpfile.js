@@ -5,17 +5,24 @@ var autoprefixer = require("autoprefixer");
 var cssvars = require("postcss-simple-vars");
 var nested = require("postcss-nested");
 var rename = require("gulp-rename");
-// var nunjucks = require("gulp-nunjucks");
+var nunjucksRender = require("gulp-nunjucks-render");
 
 gulp.task("default", () =>
   gulp
-    .src("templates/greeting.html")
+    .src("./src/views/greetings.html")
     .pipe(nunjucks.compile({ name: "myElement" }))
     .pipe(gulp.dest("dist"))
 );
 
 gulp.task("html", function() {
   console.log("Imagine something useful done here.");
+});
+
+gulp.task("njk", function() {
+  return gulp
+    .src("./src/templates/**/*.+(html|njk)")
+    .pipe(nunjucksRender({ path: ["src/templates"] }))
+    .pipe(gulp.dest("./dist"));
 });
 
 gulp.task("css", function() {
