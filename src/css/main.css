@@ -1,0 +1,8 @@
+$mainBlue: #2f5572;
+
+body {
+  color: $mainBlue;
+  margin: 0;
+  padding: 0;
+  columns: 300px 2;
+}
