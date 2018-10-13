@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <title>Document</title>
         <link rel="stylesheet" href="css/main_bundle.css">
     </head>
+
     <body>
 
         {% include "./partials/_header.njk" %}
 
         {% include "./partials/_nav.njk" %}
 
-        {% extends "./partials/_layout.njk" %}
-
         {% block content %}
-            <h1>This is the index page</h1>
+        <main class="centered-text-column">
+            {% include "./content/about.html" %}
+        </main>
         {% endblock %}
 
         {% include "./partials/_footer.njk" %}
 
-        <script src="js/main.js"></script>
+        <script src="js/main_bundle.js"></script>
     </body>
+
 </html>
