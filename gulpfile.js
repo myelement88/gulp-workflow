@@ -10,7 +10,7 @@ gulp.task("styles", function() {
     .src("./src/scss/main.scss")
     .pipe(sass.sync().on("error", sass.logError))
     .pipe(rename("css/main_bundle.css"))
-    .pipe(gulp.dest("./dist"));
+    .pipe(gulp.dest("./docs"));
 });
 
 gulp.task("markdown", function() {
@@ -29,7 +29,7 @@ gulp.task("nunjuck", function() {
   return gulp
     .src("./src/pages/*.+(html|njk)")
     .pipe(nunjucksRender({ path: ["src/pages"] }))
-    .pipe(gulp.dest("./dist"));
+    .pipe(gulp.dest("./docs"));
 });
 
 gulp.task("watch", function() {
