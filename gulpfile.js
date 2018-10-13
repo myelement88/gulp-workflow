@@ -15,14 +15,14 @@ gulp.task("styles", function() {
 
 gulp.task("markdown", function() {
   gulp
-    .src("./src/content/*.md")
+    .src("./src/pages/content/*.md")
     .pipe(markdown())
     .pipe(
       rename(function(path) {
         path.extname = ".html";
       })
     )
-    .pipe(gulp.dest("./src/content"));
+    .pipe(gulp.dest("./src/pages/content"));
 });
 
 gulp.task("nunjuck", function() {
@@ -33,7 +33,7 @@ gulp.task("nunjuck", function() {
 });
 
 gulp.task("watch", function() {
-  watch("./src/pages/**/*.njk", function() {
+  watch("./src/pages/**/*.(njk|html)", function() {
     gulp.start("nunjuck");
   });
 
@@ -41,7 +41,7 @@ gulp.task("watch", function() {
     gulp.start("styles");
   });
 
-  watch("./src/content/**/*.md", function() {
+  watch("./src/pages/content/**/*.md", function() {
     gulp.start("markdown");
   });
 });
